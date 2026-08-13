@@ -1,0 +1,15 @@
+read_verilog ../rtl/alu8bit.v
+
+hierarchy -top alu8bit
+
+proc
+opt
+techmap
+opt
+abc
+opt
+clean
+
+write_verilog -noattr alu8bit_netlist.v
+
+stat
