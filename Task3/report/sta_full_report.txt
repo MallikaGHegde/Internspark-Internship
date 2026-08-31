@@ -1,0 +1,86 @@
+OpenSTA 3.1.0 d1b2b3962c Copyright (c) 2026, Parallax Software, Inc.
+License GPLv3: GNU GPL version 3 <http://gnu.org/licenses/gpl.html>
+
+This is free software, and you are free to change and redistribute it
+under certain conditions; type `show_copying' for details. 
+This program comes with ABSOLUTELY NO WARRANTY; for details type `show_warranty'.
+ time 1ns
+ capacitance 1fF
+ resistance 1kohm
+ voltage 1v
+ current 1mA
+ power 1nW
+ distance 1um
+Startpoint: A[1] (input port clocked by VCLK)
+Endpoint: Zero (output port clocked by VCLK)
+Path Group: VCLK
+Path Type: max
+
+Fanout       Cap      Slew     Delay      Time   Description
+-------------------------------------------------------------------------------------
+                    0.0000    0.0000    0.0000   clock VCLK (rise edge)
+                              0.0000    0.0000   clock network delay (ideal)
+                              0.0000    0.0000 ^ input external delay
+     7   11.2496    0.0000    0.0000    0.0000 ^ A[1] (in)
+                    0.0000    0.0000    0.0000 ^ _217_/A (XOR2_X1)
+     5    8.1809    0.0519    0.0747    0.0747 ^ _217_/Z (XOR2_X1)
+                    0.0519    0.0000    0.0747 ^ _238_/B1 (AOI21_X1)
+     3    5.3683    0.0218    0.0334    0.1081 v _238_/ZN (AOI21_X1)
+                    0.0218    0.0000    0.1081 v _239_/B (XNOR2_X1)
+     1    1.5741    0.0150    0.0444    0.1525 v _239_/ZN (XNOR2_X1)
+                    0.0150    0.0000    0.1525 v _244_/B1 (AOI221_X1)
+     1    1.6707    0.0413    0.0717    0.2242 ^ _244_/ZN (AOI221_X1)
+                    0.0413    0.0000    0.2242 ^ _245_/A (OAI21_X1)
+     2    0.8522    0.0106    0.0230    0.2472 v _245_/ZN (OAI21_X1)
+                    0.0106    0.0000    0.2472 v _185_/A3 (OR4_X1)
+     1    0.8958    0.0162    0.1091    0.3563 v _185_/ZN (OR4_X1)
+                    0.0162    0.0000    0.3563 v _186_/A3 (OR3_X1)
+     1    1.5542    0.0130    0.0826    0.4389 v _186_/ZN (OR3_X1)
+                    0.0130    0.0000    0.4389 v _187_/A4 (NOR4_X1)
+     1    0.0000    0.0261    0.0612    0.5001 ^ _187_/ZN (NOR4_X1)
+                    0.0261    0.0000    0.5001 ^ Zero (out)
+                                        0.5001   data arrival time
+
+                    0.0000   10.0000   10.0000   clock VCLK (rise edge)
+                              0.0000   10.0000   clock network delay (ideal)
+                             -0.1000    9.9000   clock uncertainty
+                              0.0000    9.9000   clock reconvergence pessimism
+                              0.0000    9.9000   output external delay
+                                        9.9000   data required time
+-------------------------------------------------------------------------------------
+                                        9.9000   data required time
+                                       -0.5001   data arrival time
+-------------------------------------------------------------------------------------
+                                        9.3999   slack (MET)
+
+
+Startpoint: A[0] (input port clocked by VCLK)
+Endpoint: ALU_Out[0] (output port clocked by VCLK)
+Path Group: VCLK
+Path Type: min
+
+Fanout       Cap      Slew     Delay      Time   Description
+-------------------------------------------------------------------------------------
+                    0.0000    0.0000    0.0000   clock VCLK (rise edge)
+                              0.0000    0.0000   clock network delay (ideal)
+                              0.0000    0.0000 ^ input external delay
+     5    7.4161    0.0000    0.0000    0.0000 ^ A[0] (in)
+                    0.0000    0.0000    0.0000 ^ _215_/C2 (OAI211_X1)
+     2    0.7489    0.0084    0.0156    0.0156 v _215_/ZN (OAI211_X1)
+                    0.0084    0.0000    0.0156 v ALU_Out[0] (out)
+                                        0.0156   data arrival time
+
+                    0.0000    0.0000    0.0000   clock VCLK (rise edge)
+                              0.0000    0.0000   clock network delay (ideal)
+                              0.1000    0.1000   clock uncertainty
+                              0.0000    0.1000   clock reconvergence pessimism
+                              0.0000    0.1000   output external delay
+                                        0.1000   data required time
+-------------------------------------------------------------------------------------
+                                        0.1000   data required time
+                                       -0.0156   data arrival time
+-------------------------------------------------------------------------------------
+                                       -0.0844   slack (VIOLATED)
+
+
+% % 

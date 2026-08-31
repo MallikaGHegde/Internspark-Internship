@@ -1,0 +1,184 @@
+library(task3_cells) {
+
+  time_unit : "1ns";
+  voltage_unit : "1V";
+  current_unit : "1mA";
+  capacitive_load_unit (1,pf);
+
+  lu_table_template(delay_template) {
+    variable_1 : input_net_transition;
+    variable_2 : total_output_net_capacitance;
+    index_1("0.1");
+    index_2("0.1");
+  }
+
+  cell("$_AND_") {
+    area : 1;
+    pin(A) { direction : input; }
+    pin(B) { direction : input; }
+    pin(Y) {
+      direction : output;
+      function : "A & B";
+      timing() {
+        related_pin : "A";
+        cell_rise(delay_template) {
+          index_1("0.1"); index_2("0.1"); values("0.20");
+        }
+        cell_fall(delay_template) {
+          index_1("0.1"); index_2("0.1"); values("0.20");
+        }
+      }
+    }
+  }
+
+  cell("$_ANDNOT_") {
+    area : 1;
+    pin(A) { direction : input; }
+    pin(B) { direction : input; }
+    pin(Y) {
+      direction : output;
+      function : "A & !B";
+      timing() {
+        related_pin : "A";
+        cell_rise(delay_template) {
+          index_1("0.1"); index_2("0.1"); values("0.25");
+        }
+        cell_fall(delay_template) {
+          index_1("0.1"); index_2("0.1"); values("0.25");
+        }
+      }
+    }
+  }
+
+  cell("$_NAND_") {
+    area : 1;
+    pin(A) { direction : input; }
+    pin(B) { direction : input; }
+    pin(Y) {
+      direction : output;
+      function : "!(A & B)";
+      timing() {
+        related_pin : "A";
+        cell_rise(delay_template) {
+          index_1("0.1"); index_2("0.1"); values("0.20");
+        }
+        cell_fall(delay_template) {
+          index_1("0.1"); index_2("0.1"); values("0.20");
+        }
+      }
+    }
+  }
+
+  cell("$_NOR_") {
+    area : 1;
+    pin(A) { direction : input; }
+    pin(B) { direction : input; }
+    pin(Y) {
+      direction : output;
+      function : "!(A | B)";
+      timing() {
+        related_pin : "A";
+        cell_rise(delay_template) {
+          index_1("0.1"); index_2("0.1"); values("0.20");
+        }
+        cell_fall(delay_template) {
+          index_1("0.1"); index_2("0.1"); values("0.20");
+        }
+      }
+    }
+  }
+
+  cell("$_NOT_") {
+    area : 1;
+    pin(A) { direction : input; }
+    pin(Y) {
+      direction : output;
+      function : "!A";
+      timing() {
+        related_pin : "A";
+        cell_rise(delay_template) {
+          index_1("0.1"); index_2("0.1"); values("0.10");
+        }
+        cell_fall(delay_template) {
+          index_1("0.1"); index_2("0.1"); values("0.10");
+        }
+      }
+    }
+  }
+
+  cell("$_OR_") {
+    area : 1;
+    pin(A) { direction : input; }
+    pin(B) { direction : input; }
+    pin(Y) {
+      direction : output;
+      function : "A | B";
+      timing() {
+        related_pin : "A";
+        cell_rise(delay_template) {
+          index_1("0.1"); index_2("0.1"); values("0.20");
+        }
+        cell_fall(delay_template) {
+          index_1("0.1"); index_2("0.1"); values("0.20");
+        }
+      }
+    }
+  }
+
+  cell("$_ORNOT_") {
+    area : 1;
+    pin(A) { direction : input; }
+    pin(B) { direction : input; }
+    pin(Y) {
+      direction : output;
+      function : "A | !B";
+      timing() {
+        related_pin : "A";
+        cell_rise(delay_template) {
+          index_1("0.1"); index_2("0.1"); values("0.25");
+        }
+        cell_fall(delay_template) {
+          index_1("0.1"); index_2("0.1"); values("0.25");
+        }
+      }
+    }
+  }
+
+  cell("$_XOR_") {
+    area : 1;
+    pin(A) { direction : input; }
+    pin(B) { direction : input; }
+    pin(Y) {
+      direction : output;
+      function : "A ^ B";
+      timing() {
+        related_pin : "A";
+        cell_rise(delay_template) {
+          index_1("0.1"); index_2("0.1"); values("0.30");
+        }
+        cell_fall(delay_template) {
+          index_1("0.1"); index_2("0.1"); values("0.30");
+        }
+      }
+    }
+  }
+
+  cell("$_XNOR_") {
+    area : 1;
+    pin(A) { direction : input; }
+    pin(B) { direction : input; }
+    pin(Y) {
+      direction : output;
+      function : "!(A ^ B)";
+      timing() {
+        related_pin : "A";
+        cell_rise(delay_template) {
+          index_1("0.1"); index_2("0.1"); values("0.30");
+        }
+        cell_fall(delay_template) {
+          index_1("0.1"); index_2("0.1"); values("0.30");
+        }
+      }
+    }
+  }
+}
