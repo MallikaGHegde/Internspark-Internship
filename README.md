@@ -47,19 +47,3 @@ This repository contains the tasks completed during my Internspark Internship.
 - GTKWave
 - Git & GitHub
 
-## Repository Structure
-
-```text
-Internspark-Internship/
-│
-├── Task1/
-│
-├── Task2/
-│   ├── rtl/
-│   ├── tb/
-│   ├── synthesis/
-│   └── simulation/
-|
-├── README.md
-└── alu8bit.jpg
->>>>>>> 4fe7871129aed9cff3e6a5ab6329ffed4eba73cf
